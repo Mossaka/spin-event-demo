@@ -12,6 +12,18 @@ The purpose of this example is to show that a simple spin component can be used 
 ### run & logging
 - Run `RUST_LOG=spin=trace spin up -f spin.toml -L ./log` to run and log the component.
 
+### curl
+```
+   curl -v "localhost:3000" \
+    -X POST \
+     -H "Ce-Specversion: 1.0" \
+     -H "Ce-Type: dev.knative.samples.helloworld" \
+     -H "Ce-Source: dev.knative.samples/helloworldsource" \
+     -H "Ce-Id: 536808d3-88be-4077-9d7a-a3f162705f79" \
+     -H "Content-Type: application/json" \
+     -d '{"msg":"Hello spin!"}' 
+```
+
 ### quick deploy using ngrok
 - Run `ngrok http 3000` to start a local ngrok tunnel to the component.
 
