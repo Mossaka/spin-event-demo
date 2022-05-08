@@ -1,0 +1,15 @@
+spin_version = "1"
+authors = ["Mossaka"]
+description = "A Spin eventing example"
+name = "spin-event"
+trigger = { type = "http", base = "/" }
+version = "1.0.0"
+
+[[component]]
+id = "validate"
+source = "cloudevents_abuse_protection.wasm"
+allowed_http_hosts = ["insecure:allow-all"]
+[component.trigger]
+route = "/"
+[component.build]
+command = "cargo build --target wasm32-wasi --release"
